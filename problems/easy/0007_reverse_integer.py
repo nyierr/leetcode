@@ -41,8 +41,7 @@ class Solution:
         
     #    x *= neg
     #    return x if (x >= pow(-2, 31)) and x < pow(2, 31) else 0 
-    # Complexity log(x) because the number of loop runs depends on
-    # the number of digits we need to go through
+    # Complexity O(log(n))
     def reverse(self, x: int) -> int:
         INT_MAX = pow(2, 31) - 1
         
