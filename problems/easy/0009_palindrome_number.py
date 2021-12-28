@@ -26,20 +26,25 @@ Constraints:
   -2^31 <= x <= 2^31 - 1
 """
 class Solution:
-    # First approach, complexity O(n)
+    # First approach, complexity O(n) and using string conversion
     #def isPalindrome(self, x: int) -> bool:
     #    x = str(x)
     #    return x == x[::-1] 
+    
     # Enough to revers half of digits and compare them
     # to the other half. Complexity log(x)
     def isPalindrome(self, x: int) -> bool:
-        if (x < 0) or (x % 10 == 0 and x != 0):
+        if x < 0 or (x % 10 == 0 and x != 0):
             return False
-
-        reversed = 0
-        while(x > reversed):
-            reversed = reversed * 10 + x % 10
+    
+        if x >= 0 and x < 10:
+            return True
+        
+        p = 0
+        while x > 0:
+            p = (10 * p) + x % 10
+            if (p == x) or (p == x // 10):
+                return True
             x = x // 10
         
-        # reversed // 10 -> for numbers with odd number of digits
-        return (x == reversed) or (x == reversed // 10)
+        return False   
