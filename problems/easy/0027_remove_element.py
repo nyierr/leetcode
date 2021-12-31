@@ -34,24 +34,7 @@ Constraints:
   * 0 <= val <= 100
 """
 
-class Solution:
-    # O(n) approach using two pointers (i - front, current value;
-    # j - back, used to swap with i if i is matching val)
-    def removeElement(self, nums: List[int], val: int) -> int:
-        i = 0
-        j = len(nums) - 1
-        
-        while i <= j:
-            if nums[i] == val:
-                if nums[j] != val:
-                    nums[j], nums[i] = nums[i], nums[j]
-                    i += 1
-                j -= 1
-            else:
-                i += 1
-
-        return max(j+1, 0)
-    
+class Solution:   
     # O(n) approach using two pointers going in the same direction
     # (i - current value; j - used to swap with i if i is matching val)
     #def removeElement(self, nums: List[int], val: int) -> int:
@@ -83,3 +66,20 @@ class Solution:
     #            prev += 1
             
     #    return prev
+
+    # O(n) approach using two pointers (i - front, current value;
+    # j - back, used to swap with i if i is matching val)
+    def removeElement(self, nums: List[int], val: int) -> int:
+        i = 0
+        j = len(nums) - 1
+        
+        while i <= j:
+            if nums[i] == val:
+                if nums[j] != val:
+                    nums[j], nums[i] = nums[i], nums[j]
+                    i += 1
+                j -= 1
+            else:
+                i += 1
+
+        return max(j+1, 0)
