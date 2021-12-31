@@ -31,7 +31,7 @@ class Solution:
     #def climbStairs(self, n: int) -> int:
     #    if n < 0:
     #        return 0
-    #    elif n == 0:
+    #    if n == 0:
     #        return 1
     #    
     #    return self.climbStairs(n-1) + self.climbStairs(n-2)
@@ -48,7 +48,7 @@ class Solution:
     #    
     #    if n < 0:
     #        return 0
-    #    elif n == 0:
+    #    if n == 0:
     #        return 1
     #    
     #    d[n] = self.find(n-1, d) + self.find(n-2, d)
