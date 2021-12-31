@@ -55,15 +55,28 @@ class Solution:
     #    
     #    return d[n]
     
-    # O(n) solution, dynamic programming
+    # O(n) solution, dynamic programming (O(n) space complexity)
     # f(n) is f(n-1) + f(n-2) -> so if we start
     # "collecting" results from f(1) and f(2) up to
     # n, we will get the number of distinct ways for n
+    #def climbStairs(self, n: int) -> int:
+    #    r = [0, 1, 1] + (n - 1) * [0]
+    #    
+    #    for i in range(1, n):
+    #        r[i+1] += r[i]
+    #        r[i+2] += r[i]
+    #        
+    #    return r[n]
+
+    # O(n) solution, with O(1) space complexity
     def climbStairs(self, n: int) -> int:
-        r = [0, 1, 1] + (n - 1) * [0]
+        x = 1
+        y = 1
         
         for i in range(1, n):
-            r[i+1] += r[i]
-            r[i+2] += r[i]
+            t = x + y
+            x = y
+            y = t
             
-        return r[n]
+        return y
+        
