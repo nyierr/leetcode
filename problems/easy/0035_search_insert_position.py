@@ -24,24 +24,7 @@ Constraints:
   * -10^4 <= target <= 10^4
 """
 
-class Solution:
-    # O(log n), iterative binary search 
-    def searchInsert(self, nums: List[int], target: int) -> int:
-        start = 0
-        end = len(nums) - 1
-        
-        while start <= end:
-            mid = start + (end - start) // 2
-            if target == nums[mid]:
-                return mid
-            
-            if target < nums[mid]:
-                end = mid - 1
-            else:
-                start = mid + 1
-                
-        return start
-    
+class Solution:   
     # O(log n), recursive binary search
     #def searchInsert(self, nums: List[int], target: int) -> int:
     #    return self.search(nums, target, 0, len(nums) - 1)
@@ -58,3 +41,20 @@ class Solution:
     #        return self.search(nums, target, start, mid-1)
         
     #    return self.search(nums, target, mid+1, end)
+    
+    # O(log n), iterative binary search 
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        start = 0
+        end = len(nums) - 1
+        
+        while start <= end:
+            mid = start + (end - start) // 2
+            if target == nums[mid]:
+                return mid
+            
+            if target < nums[mid]:
+                end = mid - 1
+            else:
+                start = mid + 1
+                
+        return start
